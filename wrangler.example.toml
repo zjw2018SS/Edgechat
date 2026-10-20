@@ -4,6 +4,10 @@ main = "worker/src/index.js"
 compatibility_date = "2026-04-05"
 compatibility_flags = ["nodejs_compat", "global_fetch_strictly_public"]
 
+[[routes]]
+pattern = "edgechat.11112003.xyz"
+custom_domain = true
+
 [build]
 command = "npm run schema:generate"
 
@@ -18,7 +22,7 @@ GC_INTERNAL_OPERATION_BUDGET = "900"
 GC_D1_STATEMENT_BUDGET = "1200"
 GC_R2_OPERATION_BUDGET = "300"
 # 逗号分隔的本站 origin，用于识别升级前保存的完整 /files/ 图标 URL；自定义域名应全部列出。
-SITE_ORIGINS = ""
+SITE_ORIGINS = "https://edgechat.11112003.xyz"
 R2_DELETE_MAX_RETRY = "8"
 ORPHAN_UPLOAD_RETENTION_DAYS = "1"
 ALLOWED_FILE_TYPES = "image/,video/,audio/,application/pdf,text/"
