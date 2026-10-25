@@ -1,20 +1,6 @@
-name: Deploy Worker
+# 数字前缀随 Fork 继承，让部署入口在默认名称排序中靠前，无需逐仓设置置顶。
+name: 00 Deploy Worker
 on:
-  push:
-    branches:
-      - master
-      - main
-    paths:
-      - "worker/**"
-      - "frontend/**"
-      - "shared/**"
-      - "test/**"
-      - ".github/scripts/**"
-      - ".github/workflows/deploy-worker.yml"
-      - "package.json"
-      - "package-lock.json"
-      - "biome.json"
-      - "wrangler.example.toml"
   workflow_dispatch:
     inputs:
       apply_encryption_keyring:

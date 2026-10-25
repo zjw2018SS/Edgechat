@@ -13,7 +13,7 @@ test("Android CI validates the wrapper and builds a tested debug APK", () => {
 	assert.match(ci, /testDebugUnitTest lintDebug assembleDebug/);
 	assert.match(ci, /assembleDebugAndroidTest/);
 	assert.match(ci, /android\/app\/build\/outputs\/apk\/debug\/app-debug\.apk/);
-	assert.match(ci, /docs\/api\/\*\*/);
+	assert.match(ci, /workflow_dispatch:/);
 });
 
 test("Android release signs and publishes the primary Capacitor client", () => {
@@ -41,7 +41,8 @@ test("Android release signs and publishes the primary Capacitor client", () => {
 });
 
 test("Worker ignores Android-only paths and JavaScript workflows use Node 24", () => {
-	assert.match(worker, /paths:/);
+	assert.match(worker, /workflow_dispatch:/);
+	assert.doesNotMatch(worker, /push:|pull_request:/);
 	assert.doesNotMatch(worker, /android\/\*\*/);
 	for (const workflow of [worker, demo, ci, release]) {
 		assert.match(workflow, /actions\/checkout@v5/);

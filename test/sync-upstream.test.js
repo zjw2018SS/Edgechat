@@ -241,12 +241,12 @@ test("标记选择仅接受两个约定值并选择最新提交", () => {
 	);
 });
 
-test("每天两次检查，机器人推送后显式 dispatch，检查阶段不读取云凭据", () => {
+test("手动检查上游并显式 dispatch，检查阶段不读取云凭据", () => {
 	const workflow = readFileSync(
 		new URL("../.github/workflows/sync-upstream.yml", import.meta.url),
 		"utf8",
 	);
-	assert.match(workflow, /cron: "17 1,13 \* \* \*"/);
+	assert.doesNotMatch(workflow, /cron:|schedule:/);
 	assert.match(workflow, /workflow_dispatch:/);
 	assert.match(workflow, /contents: write/);
 	assert.match(workflow, /actions: write/);

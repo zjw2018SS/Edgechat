@@ -1,26 +1,5 @@
 name: Android CI
 on:
-  push:
-    branches: [master, main]
-    paths:
-      - "android/**"
-      - "docs/api/**"
-      - "worker/src/api/v1.js"
-      - "worker/src/mobile-session.js"
-      - "worker/src/realtime-tickets.js"
-      - "worker/migrations/2026-08-30-mobile-client-v1.sql"
-      - "worker/schema.sql"
-      - ".github/workflows/android-ci.yml"
-  pull_request:
-    paths:
-      - "android/**"
-      - "docs/api/**"
-      - "worker/src/api/v1.js"
-      - "worker/src/mobile-session.js"
-      - "worker/src/realtime-tickets.js"
-      - "worker/migrations/2026-08-30-mobile-client-v1.sql"
-      - "worker/schema.sql"
-      - ".github/workflows/android-ci.yml"
   workflow_dispatch:
 
 concurrency:

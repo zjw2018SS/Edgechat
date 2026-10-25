@@ -1,8 +1,5 @@
 name: Android Release
 on:
-  push:
-    tags:
-      - "android-v*"
   workflow_dispatch:
     inputs:
       version:
